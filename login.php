@@ -1,12 +1,15 @@
 <?php
- session_start();
- $db = mysqli_connect("localhost","root", "","authentication");
- ?>
+ if (isset($_POST["register"])){
+   $user = $_POST["username"];
+   echo "Welcome".$user;
+ }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Form validation for new member</title>
-  <link rel = "stylesheet" type = "text/css" href = "css/finalregistration.css">
+  <link rel = "stylesheet" type = "text/css" href = "css/login.css">
 </head>
 <body>
   <div id = "body">
@@ -36,44 +39,19 @@
       </div>
     </div>
   <div id = "wrapper">
-    <form method = "POST" action = "login.php" onsubmit="return Validate()" name = "vform">
-      <h1>Sign up free</h1>
+    <form method = "POST" action = "index.php" onsubmit="return Validate()" name = "vform">
+      <h1>login</h1>
       <div>
       <!--  <label for="textInput">Username</label>-->
         <input type = "text" name="username" class = "textInput" placeholder="Your Username..." maxlength="20" pattern="[A-Za-z0-9]+">
         <div id = "name_error" class = "val_error"></div>
       </div>
       <div>
-        <!--<label for="textInput">Email   </label>-->
-        <input type = "email" name = "email" class = "textInput" placeholder= "Your Email...">
-        <div id = "email_error" class = "val_error"></div>
-      </div>
-      <div>
       <!--  <label for="textInput">Password</label>-->
         <input type = "password" name = "password" class = "textInput" placeholder = "Your Password..." pattern="^[\w.-]*$" maxlength="15">
       </div>
       <div>
-        <!--<label for="textInput">Confirm password</label>-->
-        <input type = "password" name = "password_confirmation" class = "textInput" placeholder="password_confirmation">
-        <div id = "password_error" class = "val_error"></div>
-      </div>
-      <div>
-        <!--<label for="textInput">Address</label>-->
-      <input type = "address" name = "address" class = "textInput" placeholder = "Your address..." pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$">
-      <div id = "address_error" class = "val_error"></div>
-    </div>
-     <div>
-       <!--<label for="textInput">Suburb</label>-->
-       <input type = "suburb" name = "suburb" class = "textInput" placeholder="Your suburb..." pattern="[A-Za-z0-9 ]+">
-       <div id = "suburb_error" class = "val_error"></div>
-     </div>
-      <div>
-        <!--<label for="textInput">Postcode</label>-->
-        <input type = "postcode" name = "postcode" class = "textInput" placeholder="Your postcode..." maxlength="6" pattern="[0-9]+">
-        <div id = "postcode_error" class = "val_error"></div>
-      </div>
-      <div>
-        <input type = "submit" value = "Register" class = "btn" name = "register" >
+        <input type = "submit" value = "Login" class = "btn" name = "register" >
       </div>
     </form>
   </div>
